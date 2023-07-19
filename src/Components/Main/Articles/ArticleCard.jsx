@@ -20,7 +20,7 @@ export default function ArticleCard ({article}) {
         <div className="votes-info">
             Votes Count: {`${article.votes}`}
         </div>
-        <Button as={Link} to="/articles/:article_id/comments" img="Comments" alt="View Comments" className='btn-comments'>View Comments</Button>
+        <Button as={Link} to={`/articles/${article.article_id}/comments`} img="Comments" alt="View Comments" className='btn-comments'>View Comments</Button>
         
         <hr/>
     </div>    

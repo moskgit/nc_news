@@ -22,7 +22,6 @@ function App() {
       <Route path="/help" element={ <Help /> } />
       <Route path="/settings" element={ <Settings />} />
       <Route path="/articles/:article_id" element={ <SingleArticle /> } />
-      <Route path="/articles/:article_id/comments" element={ <SingleArticle /> } />
     </Routes>
     <Footer />
   </>
