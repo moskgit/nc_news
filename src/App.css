@@ -196,11 +196,20 @@ button:active {
     display: inline;
   }
 
+  /* article hr */
   hr {
     display: block;
   }
 
 /* coments */
+.comments-head {
+  text-align: left;
+  color:rgb(214, 29, 29)
+}
+.hr-below-comments{
+  color: lightskyblue;
+  display: block;
+}
   .comment-card {
     display: grid;
     box-shadow:black;
