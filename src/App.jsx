@@ -9,6 +9,7 @@ import Login_LandingPage from './Components/Login_LandingPage'
 import UserAccount from './Components/UtilsComponents/UserAccount'
 import Home from './Components/Home'
 import SingleArticle from './Components/Main/Articles/SingleArticle'
+import CommentsForAnArticle_List from './Components/Main/Articles/CommentsForAnArticle_List'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <Route path="/help" element={ <Help /> } />
       <Route path="/settings" element={ <Settings />} />
       <Route path="/articles/:article_id" element={ <SingleArticle /> } />
+      <Route path="/articles/:article_id/comments" element={ <CommentsForAnArticle_List /> } />
     </Routes>
     <Footer />
   </>

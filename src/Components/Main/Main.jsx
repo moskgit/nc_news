@@ -1,3 +1,4 @@
+import loadingGif from '../../assets/icons/loading.webp'
 import { useEffect, useState } from "react"
 import { getArticles, getTopics } from "../../utilsSrc/api";
 import FiltersHeader from "./filters/FiltersHeader";
@@ -26,7 +27,7 @@ export default function Main () {
         })
       },[topicsData, articlesData]);
   
-      if(isLoading) return <h2 className='Loading'>Loading...</h2>
+      if(isLoading) return <h2 className='Loading'><img src={loadingGif} className="loading-img" alt="Loading..." />  Loading... Please wait</h2>
 
     return <main className="main">
         <em><label htmlFor="categWrapper" id='filter-label-id' className='filter-label' value="Filters : ">Filters : </label></em>
