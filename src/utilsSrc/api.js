@@ -20,10 +20,16 @@ export const getArticles = () => {
         })
 }
 
-export const getArticlesById = (article_id) => {
+export const getArticleById = (article_id) => {
     return api.get(`/articles/${article_id}`)
     .then(({data}) => {
         return data;
     })
 }
 
+export const getArticleComments = (article_id) => {
+    return api.get(`/articles/${article_id}/comments`)
+    .then(({data}) => {
+        return data;
+    }) 
+}

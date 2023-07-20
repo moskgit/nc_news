@@ -12,7 +12,7 @@ export default function FiltersHeader ({topicsData, setTopicsData, articlesData,
             <div className="dropdown-content" tooltip={`$`}>
                 {topicsData.map((topic, i) => {
                     //Note: Tool-tip is added (Description as a tool-tip)
-                    return <div key={`${topic.slug}${i}`} title={`${topic.description}`} id={topic.slug}>
+                    return <div key={topic.slug} title={`${topic.description}`} id={topic.slug}>
                         <Link to={`./topics/${topic.slug}`} href="#">{topic.slug} </Link>
                     </div>
                 })}

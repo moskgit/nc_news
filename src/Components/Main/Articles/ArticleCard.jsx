@@ -1,9 +1,12 @@
-import comment from '../../../assets/icons/comment.png'
 import { Link } from "react-router-dom"
 import Button from "../../UtilsComponents/Button"
 
 
 export default function ArticleCard ({article}) {
+
+    const dateString = article.created_at;
+    const date = dateString.split('T')[0];
+    const time = dateString.slice(dateString.indexOf('T')+1,dateString.lastIndexOf(':'))
 
     return <div className="card">
         <Link to={`/articles/${article.article_id}`} className="card-title" href="#">
@@ -16,7 +19,7 @@ export default function ArticleCard ({article}) {
         </p>
         <p>{article.body}</p>
         <p>Article ID: {`${article.article_id}`}</p>
-        <p>Created At: {`${article.created_at}`}</p>
+        <p>Created At: {date}, Time: {time} </p>
         <div className="votes-info">
             Votes Count: {`${article.votes}`}
         </div>
