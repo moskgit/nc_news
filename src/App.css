@@ -237,4 +237,8 @@ button:active {
     display: inline-block;
     text-align: right;
   }
+
+  .errmsg {
+    color: red;
+  }
   /* End of comments */

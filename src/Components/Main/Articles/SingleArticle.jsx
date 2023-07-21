@@ -1,8 +1,9 @@
 import loadingGif from '../../../assets/icons/loading.webp'
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getArticleById } from "../../../utilsSrc/api";
 import ArticlesList from "./ArticlesList";
+import Button from '../../UtilsComponents/Button';
 
 
 export default function SingleArticle () {
