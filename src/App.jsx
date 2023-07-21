@@ -12,7 +12,6 @@ import SingleArticle from './Components/Main/Articles/SingleArticle'
 import CommentsForAnArticle_List from './Components/Main/Articles/CommentsForAnArticle_List'
 
 function App() {
-
   return <>
     <Header />
     <Routes>

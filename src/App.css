@@ -241,4 +241,8 @@ button:active {
   .errmsg {
     color: red;
   }
+
+  .commentadder-txtarea {
+    font-size: 1rem;
+  }
   /* End of comments */
