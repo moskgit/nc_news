@@ -33,3 +33,11 @@ export const getArticleComments = (article_id) => {
         return data;
     }) 
 }
+
+export const patchVotes = (article_id, inc_votes) => {
+    return api.patch(`/articles/${article_id}`, {inc_votes})
+    .then(({data}) => {
+        console.log('data: ', data);
+        return data;
+    })
+}
