@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import CommentCard from "./CommentCard"
 import { getArticleComments } from "../../../utilsSrc/api";
 import SingleArticle from "./SingleArticle";
-
+import CommentAdder from "./CommentAdder";
 
 export default function CommentsForAnArticle_List () {
     const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +26,7 @@ export default function CommentsForAnArticle_List () {
         <SingleArticle />
         <section>
             <h2 className="comments-head" >Comments: </h2>
+            <CommentAdder commentsData={commentsData} setCommentsData={setCommentsData} />
             <hr className="hr-below-comments" />
             <div className="comments-of-an-article">
                 {

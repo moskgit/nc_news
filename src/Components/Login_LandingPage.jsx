@@ -1,15 +1,44 @@
-import { useState } from "react";
-import handleLoginSubmit from "../utilsSrc/handleLoginSubmit";
+import loadingGif from '../assets/icons/loading.webp'
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchUsers } from "../utilsSrc/api";
+import { UserContext } from '../user/user';
 
-export default function () {
-
-    const [loginData, setLoginData] = useState('');
+export default function LoginLandingPage () {
 
     const[firstname, setFirstname] = useState('');
     const[lastname, setLastname] = useState('');
-    const[username, setUsername] = useState('');
+    const[username, setUsername] = useState('tickle122');
     const[password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
+    const [users, setUsers] = useState([]);
+    const {setUser} = useContext(UserContext);
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+        fetchUsers()
+        .then(( {users} ) => {
+            setUsers(() => users);
+            setIsLoading(false);
+        })
+    }, [])
 
+    if (isLoading) return <h2><img src={loadingGif} className="loading-img" alt="Loading..." />  Loading... Please wait</h2>
+
+    function handleLoginSubmit() {
+    
+        const usersList = users.map(user => user.username);
+        
+        if (usersList.includes(username) && password === 'xyz') {
+            setFirstname(''); setLastname(''); setUsername(''); setPassword('');
+            setUser(username);
+            navigate('/home');
+        } else {
+            console.log("Details didn't match our record. Please try again.")
+            return <h3>Invalid details</h3>
+        }
+    
+    }    
 
     return <>
         <h1> Hello, Welcome to Northcoders' amazing Articles World!</h1>
@@ -18,9 +47,8 @@ export default function () {
         <h3> Enjoy...</h3>
 
         <form className="login-form" onSubmit={(e)=>{
-                const data = [{firstname, lastname, username, password}]
-                setLoginData(data);
-                handleLoginSubmit(e, loginData);
+            e.preventDefault()
+                handleLoginSubmit({firstname, setFirstname, lastname, setLastname, username, setUsername, password, setPassword});
             }} captioin="Login Form">
 
             <label htmlFor="fname" >First Name: </label>

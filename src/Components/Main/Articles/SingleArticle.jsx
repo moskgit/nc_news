@@ -1,10 +1,9 @@
 import loadingGif from '../../../assets/icons/loading.webp'
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getArticleById } from "../../../utilsSrc/api";
 import ArticlesList from "./ArticlesList";
-import Button from '../../UtilsComponents/Button';
-
+import UserHeader from '../../Headers/UserHeader';
 
 export default function SingleArticle () {
 
@@ -24,5 +23,8 @@ export default function SingleArticle () {
     
     if(isLoading) return <h2><img src={loadingGif} className="loading-img" alt="Loading..." />  Loading... Please wait</h2>
 
-    return <ArticlesList articlesData={articlesData} />
+    return <>
+        <UserHeader />
+        <ArticlesList articlesData={articlesData} />
+    </>
 }

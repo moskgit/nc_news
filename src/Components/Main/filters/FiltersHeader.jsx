@@ -13,7 +13,7 @@ export default function FiltersHeader ({topicsData, setTopicsData, articlesData,
                 {topicsData.map((topic, i) => {
                     //Note: Tool-tip is added (Description as a tool-tip)
                     return <div key={topic.slug} title={`${topic.description}`} id={topic.slug}>
-                        <Link to={`./topics/${topic.slug}`} href="#">{topic.slug} </Link>
+                        <Link to={`/articles?topic=${topic.slug}`} href="#">{topic.slug}</Link>
                     </div>
                 })}
             </div>
@@ -30,7 +30,7 @@ export default function FiltersHeader ({topicsData, setTopicsData, articlesData,
                     //Note: Tool-tip is added (Description as a tool-tip)
                     return <div title={`${topic.description}`} key={topic.sug}>
                         <Link 
-                            to={`./topics/${topic.slug}`} 
+                            to={`/articles?topic=${topic.slug}`} 
                             key={topic.slug} id={topic.slug} 
                             href="#">{topic.slug} 
                             </Link>
@@ -47,7 +47,7 @@ export default function FiltersHeader ({topicsData, setTopicsData, articlesData,
                     //Note: Tool-tip is added (Description as a tool-tip)
                     return <div title={`${topic.description}`}>
                         <Link 
-                            to={`./topics/${topic.slug}`} 
+                            to={`/articles?topic=${topic.slug}`} 
                             key={topic.slug} id={topic.slug} 
                             href="#">{topic.slug} 
                             </Link>
@@ -64,7 +64,7 @@ export default function FiltersHeader ({topicsData, setTopicsData, articlesData,
                     //Note: Tool-tip is added (Description as a tool-tip)
                     return <div title={`${topic.description}`}>
                         <Link 
-                            to={`./topics/${topic.slug}`} 
+                            to={`/articles?topic=${topic.slug}`} 
                             key={topic.slug} id={topic.slug} 
                             href="#">{topic.slug} 
                             </Link>
