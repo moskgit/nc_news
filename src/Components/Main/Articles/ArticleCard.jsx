@@ -12,8 +12,10 @@ export default function ArticleCard ({article}) {
     const time = dateString.slice(dateString.indexOf('T')+1,dateString.lastIndexOf(':'))
 
     const [articleVoteCount, setArticleVoteCount] = useState(article.votes);
+    const [count, setcount] = useState(0);
 
     function handleClick(){
+        setcount(count + 1)
         setArticleVoteCount(articleVoteCount + 1)
         addVote(article.article_id)
         .catch(() => {
@@ -36,7 +38,7 @@ export default function ArticleCard ({article}) {
             <div className="votes-info">
                 Article Votes Count: {articleVoteCount}
             </div>
-            <Button as={Link} onClick={handleClick} img={<img src={thumbUp} alt="Click to Vote" id="click-to-vote_id" className="btn-help comment-votes"  /> } > Click to Vote</Button>
+            <Button as={Link} onClick={(count < 1) && handleClick } img={<img src={thumbUp} alt="Click to Vote" id="click-to-vote_id" className="btn-help comment-votes"  /> } > Click to Vote</Button>
             <Button as={Link} to={`/articles/${article.article_id}/comments`} img="Comments" alt="View Comments" className='btn-comments'>View Comments</Button>
         </div>    
         <hr/>
