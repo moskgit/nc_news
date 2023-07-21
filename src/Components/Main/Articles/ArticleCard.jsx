@@ -13,13 +13,16 @@ export default function ArticleCard ({article}) {
 
     const [articleVoteCount, setArticleVoteCount] = useState(article.votes);
     const [count, setcount] = useState(0);
+    const [err, setErr] = useState(false);
 
     function handleClick(){
         setcount(count + 1)
         setArticleVoteCount(articleVoteCount + 1)
         addVote(article.article_id)
+        .then(()=>{setErr(()=>false)})
         .catch(() => {
-            setArticleVoteCount(articleVoteCount - 1);
+            setErr(()=>true)
+            setArticleVoteCount(articleVoteCount);
         })
     }
 
@@ -37,6 +40,7 @@ export default function ArticleCard ({article}) {
             <p>Created At: {date}, Time: {time} </p>
             <div className="votes-info">
                 Article Votes Count: {articleVoteCount}
+                {err && <h3 className='errmsg' >error occured, Please refresh the page and try again.</h3>}
             </div>
             <Button as={Link} onClick={(count < 1) && handleClick } img={<img src={thumbUp} alt="Click to Vote" id="click-to-vote_id" className="btn-help comment-votes"  /> } > Click to Vote</Button>
             <Button as={Link} to={`/articles/${article.article_id}/comments`} img="Comments" alt="View Comments" className='btn-comments'>View Comments</Button>
